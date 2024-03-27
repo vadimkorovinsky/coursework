@@ -55,7 +55,7 @@ resource "yandex_compute_instance" "build-machine" {
 
   metadata = {
 #    user-data = "${file("userconfig.txt")}"
-    ssh-keys = "extor:${file(var.public_key_path)}"
+    ssh-keys = "extor:${file("/root/.ssh/id_rsa.pub")}"
   }
 
   provisioner "remote-exec" {
@@ -65,7 +65,7 @@ resource "yandex_compute_instance" "build-machine" {
     connection {
       type        = "ssh"
       user        = "user"
-      private_key = "${file(var.private_key_path)}"
+      private_key = file("/root/.ssh/id_rsa")
       agent       = false
       host        = self.network_interface[0].nat_ip_address
     }
