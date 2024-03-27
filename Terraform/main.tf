@@ -64,7 +64,7 @@ resource "yandex_compute_instance" "build-machine" {
     connection {
       type        = "ssh"
       user        = "user"
-      private_key = "${file("~/.ssh/id_rsa")}"
+      private_key = "${file(var.private_key_path)}"
       agent       = false
       host        = self.network_interface[0].nat_ip_address
     }
