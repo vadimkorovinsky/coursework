@@ -5,7 +5,7 @@ variable "yandex_token" {
 }
 
 variable "yandex_zone" {
-  description = "Zone"
+  description = "Zone points to ru-central1 in Yandex Cloud"
   default = "ru-central1-a"
 }
 
@@ -15,22 +15,22 @@ variable "yandex_folder_id" {
 }
 
 variable "num_nodes" {
-  description = "Number of nodes to create"
+  description = "Number of vrtual nodes to create"
   default = 1
 }
 
-variable "disk_size" {
-  description = "Specifying disk size"
-  default = 10
+variable "boot_disk_image_id" {
+  description = "Id of boot image Ubuntu 18.04"
+  default = "fd8aeg00ca1t9obj3irl"
 }
 
-variable "boot_disk_image_id" {
-  description = "Id of boot image"
-  default = "fd85u0rct32prepgjlv0"
+variable "disk_size" {
+  description = "Specifying the size of disk (Gb)"
+  default = 15
 }
 
 variable "private_key_path" {
-  description = "Path to ssh private key, which would be used to access workers"
+  description = "Path to ssh private key"
   default     = "~/.ssh/id_rsa"
 }
 
