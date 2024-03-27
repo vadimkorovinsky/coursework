@@ -54,8 +54,7 @@ resource "yandex_compute_instance" "build-machine" {
   }
 
   metadata = {
-#    user-data = "${file("userconfig.txt")}"
-    ssh-keys = "extor:${file("/root/.ssh/id_rsa.pub")}"
+    user-data = "${file("userconfig.txt")}"
   }
 
   provisioner "remote-exec" {
